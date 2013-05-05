@@ -1,0 +1,5 @@
+#hadoop distribute
+#!/bin/bash
+for node in `cat ips`;do
+  ssh $node 'apt-get install ffmpeg libavcodec-extra-53' 
+done

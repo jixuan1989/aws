@@ -1,0 +1,5 @@
+#hadoop distribute
+#/bin/bash
+for node in `cat ipsWithoutme`;do
+  scp -r ~/Public/hadoop-1.0.4 $USER@$node:~/Public/  
+done

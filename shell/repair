@@ -1,0 +1,4 @@
+#/bin/bash
+for node in `cat ipnames`;do
+  ssh $node "sed -i '/^127.0.1.1/d' /etc/hosts"  #删除开头的行
+done

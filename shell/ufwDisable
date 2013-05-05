@@ -1,0 +1,4 @@
+#/bin/bash
+for node in `cat ipnames`;do
+  ssh $node "ufw disable"  #删除开头的行
+done

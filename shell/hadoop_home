@@ -1,0 +1,11 @@
+#HADOOP_HOME PATH的修改
+#/bin/bash
+#rm -rf ~/.ssh
+#ssh-kengen -t rsa 
+for node in `cat ips`;do
+#	ssh $node  "echo 'export HADOOP_HOME=\"/home/hxd/Public/hadoop-1.0.4\"' >> /etc/profile"
+#	ssh $node  "echo  'export PATH=\"$HADOOP_HOME/bin:$PATH\"'' >> /etc/profile"
+#	ssh $node "source /etc/profile"
+	scp profile root@$node:/etc/profile
+	ssh $node "source /etc/profile"
+done

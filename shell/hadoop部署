@@ -1,0 +1,6 @@
+1、下载Hadoop-1.0.4.tar.gz
+2、tar -zxf Hadoop-1.0.4.tar.gz
+3、修改conf/hadoop-env.sh
+    设置JAVA_HOME
+    设置log位置
+4、各种修改。。

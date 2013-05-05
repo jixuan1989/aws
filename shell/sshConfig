@@ -1,0 +1,8 @@
+#/bin/bash
+#rm -rf ~/.ssh
+#ssh-kengen -t rsa 
+cat ~/.ssh/id_rsa.pub>>~/.ssh/authorized_keys
+for node in `cat ips`;do
+  scp ~/.ssh/authorized_keys  @$node:~/.ssh/authorized_keys
+  ssh $node "chmod 644 ~/.ssh/authorized_keys"
+done

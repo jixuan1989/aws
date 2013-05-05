@@ -1,0 +1,4 @@
+#删除datanode的数据和日志
+for node in `cat ips`;do
+	ssh $node 'rm -rf /home/hxd/data/* && rm -rf ~/logs/*'
+done

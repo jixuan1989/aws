@@ -1,0 +1,6 @@
+#/bin/bash
+#rm -rf ~/.ssh
+#ssh-kengen -t rsa 
+for node in `cat ipsWithoutMe`;do
+  ssh $node "rm -rf ~/.ssh && mkdir ~/.ssh &&chmod 700 .ssh"
+done

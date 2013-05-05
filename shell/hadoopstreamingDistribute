@@ -1,0 +1,11 @@
+#!/bin/bash
+#hadoop distribute
+#/bin/bash
+for node in `cat ipsWithoutme`;do
+  scp  ~/Public/hadoop-1.0.4/hadoop-streaming-1.0.4.jar $USER@$node:~/Public/hadoop-1.0.4/
+  scp  ~/Public/hadoop-1.0.4/runffmeg.sh $USER@$node:~/Public/hadoop-1.0.4/
+  scp  ~/Public/hadoop-1.0.4/runffmpeg4mp3.sh $USER@$node:~/Public/hadoop-1.0.4/
+  scp  /mnt/hgfs/tmp/mr/lib/*.jar $USER@$node:~/Public/hadoop-1.0.4/lib/
+  scp  /mnt/hgfs/tmp/mr/lib/features.xml $USER@$node:~/Public/hadoop-1.0.4/lib/
+  scp  /mnt/hgfs/tmp/mr/lib/features.xml $USER@$node:~/Public/hadoop-1.0.4/conf/
+done

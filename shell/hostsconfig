@@ -1,0 +1,8 @@
+#/bin/bash
+for node in `cat ipnames`;do
+  scp hosts $USER@$node:/etc/hosts 
+  ssh $node "sed -i '/^127.0.1.1/d' /etc/hosts"  #删除开头的行
+  ssh $node "echo '127.0.1.1 $node' >> /etc/hosts"
+  ssh $node "echo '$node' > /etc/hostname"
+  ssh $node "hostname '$node'"
+done

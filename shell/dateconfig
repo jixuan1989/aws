@@ -1,0 +1,5 @@
+for node in `cat ips`;do
+  ssh $node "ntpdate 202.120.2.101"
+echo $node  
+ssh $node "date"
+done

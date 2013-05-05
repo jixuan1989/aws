@@ -1,0 +1,27 @@
+集群环境部署（已经安装jvm,配置好清华的/etc/source.list）
+0、首先 编辑ips和ipWithoutMe和ipnames
+1、然后运行rm -rf ~/.ssh （省的权限各种问题）
+2、然后./clearSSHfirst （清空其他的节点的.ssh）（需要输入n遍yes和n遍密码。。）
+3、然后ssh-keygen -t rsa 
+4、然后sshConfig
+4.1如果需要配置其他用户，重复1234即可(比如root用户)
+5、用root权限修改hosts和hostname
+   ./hostconfig （需要输入n遍yes。。）
+6、集群统一时间(root)
+   ./dateconfig
+7、关闭防火墙(root)
+   ./closeFirewall
+8、 HADOOP_HOME 和path的修改(root)
+	./hadoop_home
+9.1 修改hadoop的conf，内容过多
+9、 分发Hadoop
+    ./hadoopDistribute
+10、集群安装ffmpeg(root)，同时需要安装一个mp3编码库
+    ./ffmpegInstall（需要输入k遍y）
+11、编写ffmpeg运行脚本并分发：
+
+12、hadoop streaming运行
+提取关键帧
+hadoop jar hadoop-streaming-1.0.4.jar -input /mutli/list.txt -output /movies_output/1 -mapper runffmeg.sh -file runffmeg.sh  
+提取音频
+hadoop jar hadoop-streaming-1.0.4.jar -input /mutli/list.txt -output /movies_mp3_output/1 -mapper runffmpeg4mp3.sh -file runffmpeg4mp3.sh -jobconf mapred.map.tasks=20 -jobconf mapred.job.name="extractmp3"  
