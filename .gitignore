@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+
+#tlxweb
+tlxweb/target/*.*
